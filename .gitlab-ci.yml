@@ -1,0 +1,15 @@
+stages:
+    - build
+
+unity-build:
+    stage: build
+    script: 
+        - ls
+        - rm -r C:\Flipp3r\
+        - mkdir C:\Flipp3r\
+        - xcopy . C:\Flipp3r\ /E
+        - C:\PROGRA~1\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe -quit -batchmode -projectPath C:\Flipp3r\Flipp3r -executeMethod BuildScript.Build
+    only:
+        - main
+    tags:
+        - flipp3r
